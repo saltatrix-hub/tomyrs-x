@@ -2,7 +2,7 @@
 
 Windows 11 için **bilgisayar hızlandırma** ve **tweak** uygulaması.
 
-Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debloat](https://github.com/Raphire/Win11Debloat) seçeneklerini tek pencerede toplar. Varsayılan dil Türkçe. İngilizce de var. ISLC dahil değildir.
+Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debloat](https://github.com/Raphire/Win11Debloat) seçeneklerini tek pencerede toplar.
 
 ![Debloat](docs/screenshots/01-debloat.png)
 
@@ -90,18 +90,12 @@ dotnet publish src/Flyworm.App/Flyworm.App.csproj -c Release -r win-x64 --self-c
 
 Bazı tweakler Windows Defender, Edge veya sistem bileşenlerini değiştirir. Yalnızca kendi bilgisayarında, riski bilerek kullan. Önce geri yükleme noktası al.
 
-## Kaynak
-
-- Arayüz: Flyworm (MIT)
-- Debloat motoru: [Win11Debloat](https://github.com/Raphire/Win11Debloat), Raphire (MIT)
-- Tweak scriptleri: mevcut paketinden, ISLC hariç
-
 ---
 
 # Flyworm (English)
 
 Purple-themed Windows 11 speed-up and tweak app. Default language is Turkish; English is included.
 
-It wraps Win11Debloat and the sequential tweak scripts (except ISLC) in one window. **Apply selected** only runs the current page. The log shows a percentage, not PowerShell output.
+It wraps Win11Debloat and the sequential tweak scripts in one window. **Apply selected** only runs the current page. The log shows a percentage, not PowerShell output.
 
 Use only on your own PC. Some options turn off Defender or remove Edge.
