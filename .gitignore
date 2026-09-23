@@ -3,6 +3,8 @@ bin/
 obj/
 .vs/
 publish/
+artifacts/
+src/Flyworm.Setup/Payload.zip
 *.user
 *.suo
 .idea/

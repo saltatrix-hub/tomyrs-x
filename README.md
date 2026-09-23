@@ -8,11 +8,9 @@ Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debl
 
 ## İndir
 
-Hazır Windows paketi (yönetici olarak çalıştır):
+**[Flyworm-Setup.exe indir](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-Setup.exe)**
 
-**[Flyworm 1.0.0 indir (win-x64)](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-1.0.0-win-x64.zip)**
-
-Zip’i aç, `Flyworm.exe` dosyasına sağ tıkla → **Yönetici olarak çalıştır**. .NET kurman gerekmez. Tweak ve Win11Debloat dosyaları paketin içinde.
+Setup’ı çalıştır, **Kur**’a bas. Masaüstüne Flyworm gelir; onu yönetici olarak aç. .NET kurman gerekmez.
 
 Tüm sürümler: [Releases](https://github.com/taneryigitxl/flyworm/releases)
 
@@ -80,22 +78,6 @@ Win11Debloat motorunu sessiz çalıştırır. Tipik kazançlar:
 
 Debloat sayfasında isteğe bağlı **sistem geri yükleme noktası** vardır.
 
-## Kaynaktan çalıştırma
-
-Yönetici olarak:
-
-```powershell
-dotnet run --project src/Flyworm.App/Flyworm.App.csproj
-```
-
-Tek dosya yayın:
-
-```powershell
-dotnet publish src/Flyworm.App/Flyworm.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish
-```
-
-`publish\Flyworm.exe` yönetici ister (.NET 8, Windows 10/11 x64).
-
 ## Uyarı
 
 Bazı tweakler Windows Defender, Edge veya sistem bileşenlerini değiştirir. Yalnızca kendi bilgisayarında, riski bilerek kullan. Önce geri yükleme noktası al.
@@ -106,7 +88,7 @@ Bazı tweakler Windows Defender, Edge veya sistem bileşenlerini değiştirir. Y
 
 Purple-themed Windows 11 speed-up and tweak app. Default language is Turkish; English is included.
 
-Download: [Flyworm 1.0.0 (win-x64)](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-1.0.0-win-x64.zip). Extract and run `Flyworm.exe` as administrator.
+Download [Flyworm-Setup.exe](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-Setup.exe), run Setup, then open Flyworm from the desktop.
 
 It wraps Win11Debloat and the sequential tweak scripts in one window. **Apply selected** only runs the current page. The log shows a percentage, not PowerShell output.
 
