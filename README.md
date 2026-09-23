@@ -2,15 +2,13 @@
 
 Windows 11 için **bilgisayar hızlandırma** ve **tweak** uygulaması.
 
-Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debloat](https://github.com/Raphire/Win11Debloat) seçeneklerini tek pencerede toplar.
-
 ![Debloat](docs/screenshots/01-debloat.png)
 
 ## İndir
 
 **[Flyworm-Setup.exe indir](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-Setup.exe)**
 
-Setup’ı çalıştır, **Kur**’a bas. Masaüstüne Flyworm gelir; onu yönetici olarak aç. .NET kurman gerekmez.
+Setup’ı çalıştır, **Kur**’a bas. Masaüstüne Flyworm gelir; onu yönetici olarak aç.
 
 Tüm sürümler: [Releases](https://github.com/taneryigitxl/flyworm/releases)
 
