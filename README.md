@@ -1,6 +1,6 @@
 # Flyworm
 
-Windows 11 için mor temalı **bilgisayar hızlandırma** ve **tweak** uygulaması.
+Windows 11 için **bilgisayar hızlandırma** ve **tweak** uygulaması.
 
 Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debloat](https://github.com/Raphire/Win11Debloat) seçeneklerini tek pencerede toplar. Varsayılan dil Türkçe. İngilizce de var. ISLC dahil değildir.
 
@@ -34,7 +34,7 @@ Windows zamanla arka plan uygulamaları, öneriler, widget'lar, telemetri, gerek
 
 ![Hakkında](docs/screenshots/05-about.png)
 
-## Tweakler (ISLC hariç)
+## Tweakler
 
 Uygulama, orijinal paketteki sırayı korur ve her satırda önerilen ayarı uygular:
 
