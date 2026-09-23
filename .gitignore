@@ -1,0 +1,8 @@
+_tweaks_src/
+bin/
+obj/
+.vs/
+publish/
+*.user
+*.suo
+.idea/

@@ -1,0 +1,27 @@
+{
+  "tweaks": [
+    { "id": "bg-apps", "file": "1 Background Apps.ps1", "choice": "1", "order": 1 },
+    { "id": "poll-cap", "file": "2 Background Polling Rate Cap.ps1", "choice": "1", "order": 2 },
+    { "id": "msi", "file": "3 Msi Mode.ps1", "choice": "1", "order": 3 },
+    { "id": "directx", "file": "4 Direct X.ps1", "choice": "1", "order": 4, "needsNet": true },
+    { "id": "cpp", "file": "5 C++.ps1", "choice": "1", "order": 5, "needsNet": true },
+    { "id": "start-taskbar", "file": "6 Start Menu Taskbar.ps1", "choice": "1", "order": 6 },
+    { "id": "copilot", "file": "7 Copilot .ps1", "choice": "1", "order": 7 },
+    { "id": "p0", "file": "8 P0 State.ps1", "choice": "1", "order": 8 },
+    { "id": "widgets", "file": "8 Widgets.ps1", "choice": "1", "order": 9 },
+    { "id": "gamemode", "file": "9 Gamemode.ps1", "choice": "1", "order": 10, "opensSettings": true },
+    { "id": "gamebar", "file": "10 Gamebar.ps1", "choice": "1", "order": 11, "needsNet": true },
+    { "id": "pointer", "file": "11 Pointer Precision.ps1", "choice": "1", "order": 12, "opensSettings": true },
+    { "id": "power", "file": "12 Power Plan.ps1", "choice": "1", "order": 13 },
+    { "id": "lockscreen", "file": "13 Signout Lockscreen Wallpaper Black.ps1", "choice": "1", "order": 14 },
+    { "id": "theme", "file": "14 Theme Black.ps1", "choice": "1", "order": 15 },
+    { "id": "edge", "file": "15 Edge & WebView.ps1", "choice": "1", "order": 16 },
+    { "id": "bloatware", "file": "16 Bloatware.ps1", "choice": "2", "order": 17, "needsNet": true },
+    { "id": "defender", "file": "17 Defender.ps1", "choice": "1", "order": 18, "dangerous": true }
+  ],
+  "gpu": [
+    { "id": "gpu-amd", "file": "gpu/Amd Settings.ps1", "choice": "1" },
+    { "id": "gpu-intel", "file": "gpu/Intel Settings.ps1", "choice": "1" },
+    { "id": "gpu-nvidia", "file": "gpu/Nvidia Settings.ps1", "choice": "1" }
+  ]
+}
