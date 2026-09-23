@@ -5,7 +5,8 @@
         Height="780" Width="1180"
         MinHeight="640" MinWidth="980"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource BgBrush}">
+        Background="{StaticResource BgBrush}"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="236"/>
@@ -15,9 +16,9 @@
         <Border Grid.Column="0" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,1,0">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Margin="22,22,22,10">
-                    <Image x:Name="LogoImage" Width="64" Height="64" HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="HighQuality"/>
-                    <TextBlock x:Name="TitleText" Text="Flyworm" FontSize="22" FontWeight="Bold" Margin="0,14,0,2"/>
-                    <TextBlock x:Name="SubtitleText" Text="Bilgisayar hızlandırma" Foreground="{StaticResource MutedBrush}"/>
+                    <Image x:Name="LogoImage" Width="64" Height="64" HorizontalAlignment="Left" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock x:Name="TitleText" Text="Flyworm" FontSize="22" FontWeight="Bold" Margin="0,14,0,2" Foreground="#F5F3FF"/>
+                    <TextBlock x:Name="SubtitleText" Text="Bilgisayar hızlandırma" Foreground="#F5F3FF"/>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" Margin="16,0,16,18">
                     <StackPanel Orientation="Horizontal" Margin="6,0,0,10">
@@ -31,6 +32,7 @@
                     <RadioButton x:Name="NavTweaks" Style="{StaticResource NavButton}" Checked="Nav_Checked"/>
                     <RadioButton x:Name="NavGpu" Style="{StaticResource NavButton}" Checked="Nav_Checked"/>
                     <RadioButton x:Name="NavLog" Style="{StaticResource NavButton}" Checked="Nav_Checked"/>
+                    <RadioButton x:Name="NavAbout" Style="{StaticResource NavButton}" Checked="Nav_Checked"/>
                 </StackPanel>
             </DockPanel>
         </Border>
@@ -50,15 +52,20 @@
                 <ScrollViewer x:Name="PageScroll" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <StackPanel x:Name="PageHost"/>
                 </ScrollViewer>
-                <TextBox x:Name="LogBox" Grid.Row="1" Visibility="Collapsed"
-                         IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"
-                         VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="12"
-                         Padding="12"/>
+                <Grid x:Name="LogPanel" Grid.Row="1" Visibility="Collapsed">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="420">
+                        <TextBlock x:Name="LogStatus" Text="Henüz bir işlem yok." FontSize="22" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextBrush}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                        <TextBlock x:Name="LogPercent" Text="" FontSize="46" FontWeight="Bold"
+                                   Foreground="{StaticResource AccentSoftBrush}" HorizontalAlignment="Center" Margin="0,10,0,18"/>
+                        <ProgressBar x:Name="LogProgress" Minimum="0" Maximum="100" Value="0"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
 
             <Border Grid.Row="1" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0" Padding="18,14">
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <StackPanel x:Name="ActionButtons" DockPanel.Dock="Right" Orientation="Horizontal">
                         <Button x:Name="DefaultsButton" Style="{StaticResource GhostButton}" Click="Defaults_Click" Margin="0,0,8,0"/>
                         <Button x:Name="SelectAllButton" Style="{StaticResource GhostButton}" Click="SelectAll_Click" Margin="0,0,8,0"/>
                         <Button x:Name="ClearButton" Style="{StaticResource GhostButton}" Click="Clear_Click" Margin="0,0,8,0"/>

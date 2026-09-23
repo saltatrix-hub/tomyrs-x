@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace Flyworm.Services;
@@ -9,7 +10,7 @@ public sealed class ScriptRunner
         string scriptPath,
         IEnumerable<string> arguments,
         string workingDirectory,
-        Action<string> onOutput,
+        Action<string>? onOutput = null,
         CancellationToken cancellationToken = default)
     {
         var start = new ProcessStartInfo
@@ -33,6 +34,11 @@ public sealed class ScriptRunner
             start.ArgumentList.Add(argument);
         }
 
+        if (!File.Exists(scriptPath))
+        {
+            throw new FileNotFoundException($"Script not found: {scriptPath}", scriptPath);
+        }
+
         using var process = new Process { StartInfo = start, EnableRaisingEvents = true };
         var tcs = new TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously);
 
@@ -40,19 +46,17 @@ public sealed class ScriptRunner
         {
             if (!string.IsNullOrWhiteSpace(e.Data))
             {
-                onOutput(e.Data);
+                onOutput?.Invoke(e.Data);
             }
         };
         process.ErrorDataReceived += (_, e) =>
         {
             if (!string.IsNullOrWhiteSpace(e.Data))
             {
-                onOutput(e.Data);
+                onOutput?.Invoke(e.Data);
             }
         };
         process.Exited += (_, _) => tcs.TrySetResult(process.ExitCode);
-
-        onOutput($"> powershell -File {scriptPath} {string.Join(' ', arguments)}");
         if (!process.Start())
         {
             throw new InvalidOperationException("PowerShell başlatılamadı.");

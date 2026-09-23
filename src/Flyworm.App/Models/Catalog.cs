@@ -14,6 +14,7 @@ public sealed class FeatureFile
 public sealed class FeatureCategory
 {
     [JsonPropertyName("Name")] public string Name { get; set; } = "";
+    [JsonPropertyName("Icon")] public string Icon { get; set; } = "";
 }
 
 public sealed class UiGroup
@@ -115,4 +116,17 @@ public static class CatalogLoader
 
     public static TweakCatalog LoadTweaks(string path) =>
         JsonSerializer.Deserialize<TweakCatalog>(File.ReadAllText(path), JsonOptions) ?? new TweakCatalog();
+
+    public static string DecodeIcon(string? icon, string fallback = "\uE10F")
+    {
+        if (string.IsNullOrWhiteSpace(icon))
+        {
+            return fallback;
+        }
+
+        var match = System.Text.RegularExpressions.Regex.Match(icon, @"&#x([0-9A-Fa-f]+);?");
+        return match.Success
+            ? char.ConvertFromUtf32(Convert.ToInt32(match.Groups[1].Value, 16))
+            : icon;
+    }
 }
