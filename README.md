@@ -6,6 +6,16 @@ Flyworm, önceden tek tek çalıştırılan PowerShell tweaklerini ve [Win11Debl
 
 ![Debloat](docs/screenshots/01-debloat.png)
 
+## İndir
+
+Hazır Windows paketi (yönetici olarak çalıştır):
+
+**[Flyworm 1.0.0 indir (win-x64)](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-1.0.0-win-x64.zip)**
+
+Zip’i aç, `Flyworm.exe` dosyasına sağ tıkla → **Yönetici olarak çalıştır**. .NET kurman gerekmez. Tweak ve Win11Debloat dosyaları paketin içinde.
+
+Tüm sürümler: [Releases](https://github.com/taneryigitxl/flyworm/releases)
+
 ## Ne işe yarar
 
 Windows zamanla arka plan uygulamaları, öneriler, widget'lar, telemetri, gereksiz UWP yazılımları ve düşük güç planlarıyla yavaşlar. Flyworm bunları kategorilere ayırır:
@@ -70,7 +80,7 @@ Win11Debloat motorunu sessiz çalıştırır. Tipik kazançlar:
 
 Debloat sayfasında isteğe bağlı **sistem geri yükleme noktası** vardır.
 
-## Çalıştırma
+## Kaynaktan çalıştırma
 
 Yönetici olarak:
 
@@ -95,6 +105,8 @@ Bazı tweakler Windows Defender, Edge veya sistem bileşenlerini değiştirir. Y
 # Flyworm (English)
 
 Purple-themed Windows 11 speed-up and tweak app. Default language is Turkish; English is included.
+
+Download: [Flyworm 1.0.0 (win-x64)](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-1.0.0-win-x64.zip). Extract and run `Flyworm.exe` as administrator.
 
 It wraps Win11Debloat and the sequential tweak scripts in one window. **Apply selected** only runs the current page. The log shows a percentage, not PowerShell output.
 
