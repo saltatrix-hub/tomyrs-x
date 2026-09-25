@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Flyworm;
+namespace TomyrsX.Setup;
 
 public partial class App : Application
 {

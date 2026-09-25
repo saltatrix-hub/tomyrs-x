@@ -7,12 +7,13 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <RootNamespace>Flyworm</RootNamespace>
-    <AssemblyName>Flyworm</AssemblyName>
+    <RootNamespace>TomyrsX</RootNamespace>
+    <AssemblyName>TomyrsX</AssemblyName>
     <Version>1.0.0</Version>
-    <Product>Flyworm</Product>
-    <Company>Flyworm</Company>
+    <Product>Tomyrs X</Product>
+    <Company>Tomyrs X</Company>
     <Description>Windows hızlandırma ve debloat uygulaması</Description>
+    <RepositoryUrl>https://github.com/saltatrix-hub/tomyrs-x</RepositoryUrl>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
   </PropertyGroup>
 

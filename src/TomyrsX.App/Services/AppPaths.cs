@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace Flyworm.Services;
+namespace TomyrsX.Services;
 
 public static class AppPaths
 {

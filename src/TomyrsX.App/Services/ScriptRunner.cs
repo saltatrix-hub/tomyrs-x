@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace Flyworm.Services;
+namespace TomyrsX.Services;
 
 public sealed class ScriptRunner
 {

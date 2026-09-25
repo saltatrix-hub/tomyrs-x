@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Flyworm.Services;
+namespace TomyrsX.Services;
 
 public enum AppLanguage
 {
@@ -76,7 +76,7 @@ public sealed class I18n : INotifyPropertyChanged
 
     private static readonly Dictionary<string, string> Tr = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["app.title"] = "Flyworm",
+        ["app.title"] = "Tomyrs X",
         ["app.subtitle"] = "Bilgisayar hızlandırma",
         ["nav.debloat"] = "Debloat",
         ["nav.tweaks"] = "Tweakler",
@@ -114,10 +114,11 @@ public sealed class I18n : INotifyPropertyChanged
         ["page.debloat.hint"] = "Win11Debloat seçenekleri. İşaretlediklerin PowerShell ile sessiz uygulanır.",
         ["page.tweaks.hint"] = "Sırasıyla tweakler. ISLC hariç tutuldu. Her satır orijinal scriptin önerilen ayarını uygular.",
         ["page.gpu.hint"] = "Kendi ekran kartın için birini seç. AMD, Intel ve NVIDIA scriptleri ayrıdır.",
-        ["page.about.hint"] = "Flyworm hakkında ve bağlantılar.",
+        ["page.about.hint"] = "Tomyrs X hakkında ve proje bilgileri.",
         ["about.tagline"] = "Windows hızlandırma ve debloat",
-        ["about.desc"] = "Win11Debloat seçeneklerini ve sırasıyla tweakleri tek mor temalı pencerede toplar. ISLC dahil değildir.",
+        ["about.desc"] = "Win11Debloat seçeneklerini ve sıralı tweakleri modern bir arayüzde toplar. ISLC dahil değildir.",
         ["about.version"] = "Sürüm 1.0.0",
+        ["about.credits"] = "Açık kaynak Win11Debloat motorunu kullanır. Lisans bilgileri uygulama paketindedir.",
         ["about.website"] = "Web sitesi",
         ["about.github"] = "GitHub",
         ["about.linkedin"] = "LinkedIn",
@@ -278,7 +279,7 @@ public sealed class I18n : INotifyPropertyChanged
 
     private static readonly Dictionary<string, string> En = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["app.title"] = "Flyworm",
+        ["app.title"] = "Tomyrs X",
         ["app.subtitle"] = "PC speed-up",
         ["nav.debloat"] = "Debloat",
         ["nav.tweaks"] = "Tweaks",
@@ -316,10 +317,11 @@ public sealed class I18n : INotifyPropertyChanged
         ["page.debloat.hint"] = "Win11Debloat options. Checked items are applied silently through PowerShell.",
         ["page.tweaks.hint"] = "Sequential tweaks. ISLC is excluded. Each row applies the original script's recommended setting.",
         ["page.gpu.hint"] = "Pick the script that matches your GPU. AMD, Intel, and NVIDIA are separate.",
-        ["page.about.hint"] = "About Flyworm and contact links.",
+        ["page.about.hint"] = "About Tomyrs X and project information.",
         ["about.tagline"] = "Windows speed-up and debloat",
-        ["about.desc"] = "Puts Win11Debloat options and the sequential tweaks in one purple-themed window. ISLC is not included.",
+        ["about.desc"] = "Puts Win11Debloat options and sequential tweaks in one modern interface. ISLC is not included.",
         ["about.version"] = "Version 1.0.0",
+        ["about.credits"] = "Powered by the open-source Win11Debloat engine. License details are included with the app.",
         ["about.website"] = "Website",
         ["about.github"] = "GitHub",
         ["about.linkedin"] = "LinkedIn",

@@ -8,10 +8,10 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using Flyworm.Models;
-using Flyworm.Services;
+using TomyrsX.Models;
+using TomyrsX.Services;
 
-namespace Flyworm;
+namespace TomyrsX;
 
 public partial class MainWindow : Window
 {
@@ -46,7 +46,7 @@ public partial class MainWindow : Window
         {
             MessageBox.Show(
                 "Gerekli dosyalar bulunamadı. Uygulamayı publish klasöründen veya proje çıktısından çalıştır.",
-                "Flyworm",
+                "Tomyrs X",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
             _features = new FeatureFile();
@@ -77,7 +77,7 @@ public partial class MainWindow : Window
         {
             var folder = shot + 1 < args.Length
                 ? args[shot + 1]
-                : System.IO.Path.Combine(Path.GetTempPath(), "flyworm-shots");
+                : System.IO.Path.Combine(Path.GetTempPath(), "tomyrs-x-shots");
             try
             {
                 Directory.CreateDirectory(folder);
@@ -86,7 +86,7 @@ public partial class MainWindow : Window
             }
             catch (Exception ex)
             {
-                File.WriteAllText(Path.Combine(Path.GetTempPath(), "flyworm-shot-error.txt"), ex.ToString());
+                File.WriteAllText(Path.Combine(Path.GetTempPath(), "tomyrs-x-shot-error.txt"), ex.ToString());
                 Close();
             }
         }
@@ -807,24 +807,29 @@ public partial class MainWindow : Window
             Foreground = (Brush)FindResource("MutedBrush"),
             Margin = new Thickness(0, 4, 0, 4)
         });
+        stack.Children.Add(new TextBlock
+        {
+            Text = _i18n.T("about.desc"),
+            Foreground = (Brush)FindResource("TextBrush"),
+            TextWrapping = TextWrapping.Wrap,
+            MaxWidth = 660,
+            Margin = new Thickness(0, 12, 0, 4)
+        });
+        stack.Children.Add(new TextBlock
+        {
+            Text = _i18n.T("about.credits"),
+            Foreground = (Brush)FindResource("MutedBrush"),
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 8, 0, 0)
+        });
         card.Child = stack;
         PageHost.Children.Add(card);
 
         PageHost.Children.Add(CreateLinkCard(
-            _i18n.T("about.website"),
-            "yigittaner.com",
-            "https://yigittaner.com",
-            CreateSegoeIcon("\uE774")));
-        PageHost.Children.Add(CreateLinkCard(
             _i18n.T("about.github"),
-            "github.com/taneryigitxl",
-            "https://github.com/taneryigitxl",
+            "github.com/saltatrix-hub/tomyrs-x",
+            "https://github.com/saltatrix-hub/tomyrs-x",
             CreatePathIcon("M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.81 1.3 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22 0 1.61-.01 2.91-.01 3.31 0 .32.22.69.83.57C20.56 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z")));
-        PageHost.Children.Add(CreateLinkCard(
-            _i18n.T("about.linkedin"),
-            "linkedin.com/in/taneryigit",
-            "https://www.linkedin.com/in/taneryigit/",
-            CreatePathIcon("M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z")));
     }
 
     private UIElement CreateLinkCard(string title, string subtitle, string url, UIElement icon)

@@ -1,0 +1,12 @@
+<Application x:Class="TomyrsX.Setup.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BgBrush" Color="#070B14"/>
+        <SolidColorBrush x:Key="CardBrush" Color="#111B2E"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#22D3EE"/>
+        <SolidColorBrush x:Key="TextBrush" Color="#ECFBFF"/>
+        <SolidColorBrush x:Key="MutedBrush" Color="#91A4B7"/>
+    </Application.Resources>
+</Application>

@@ -7,11 +7,11 @@ param(
 $ErrorActionPreference = "Continue"
 $ProgressPreference = "SilentlyContinue"
 
-$script:FlywormReadCount = 0
+$script:TomyrsXReadCount = 0
 function Read-Host {
     param([Parameter(ValueFromRemainingArguments = $true)] $Ignored)
-    $script:FlywormReadCount++
-    if ($script:FlywormReadCount -eq 1) {
+    $script:TomyrsXReadCount++
+    if ($script:TomyrsXReadCount -eq 1) {
         return $Choice
     }
     return "1"
@@ -29,7 +29,7 @@ $content = Get-Content -LiteralPath $ScriptPath -Raw -Encoding UTF8
 $content = [regex]::Replace(
     $content,
     '(?s)If\s*\(!\(\[Security\.Principal\.WindowsPrincipal\].*?Start-Process PowerShell\.exe.*?Exit\s*\}',
-    "# Flyworm: already elevated"
+    "# Tomyrs X: already elevated"
 )
 
 $script:PSScriptRoot = [System.IO.Path]::GetDirectoryName($ScriptPath)

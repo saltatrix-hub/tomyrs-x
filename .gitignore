@@ -4,7 +4,8 @@ obj/
 .vs/
 publish/
 artifacts/
-src/Flyworm.Setup/Payload.zip
+src/TomyrsX.Setup/Payload.zip
 *.user
 *.suo
 .idea/
+.dotnet/

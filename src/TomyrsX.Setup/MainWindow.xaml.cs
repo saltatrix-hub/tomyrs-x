@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace Flyworm.Setup;
+namespace TomyrsX.Setup;
 
 public partial class MainWindow : Window
 {
@@ -29,21 +29,21 @@ public partial class MainWindow : Window
             var appDir = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "Programs",
-                "Flyworm");
+                "Tomyrs X");
             if (Directory.Exists(appDir))
             {
                 Directory.Delete(appDir, true);
             }
 
             Directory.CreateDirectory(appDir);
-            StatusText.Text = "Flyworm kopyalanıyor...";
+            StatusText.Text = "Tomyrs X kopyalanıyor...";
             Bar.Value = 35;
             await Task.Run(() => ExtractPayload(appDir));
 
-            var exePath = Path.Combine(appDir, "Flyworm.exe");
+            var exePath = Path.Combine(appDir, "TomyrsX.exe");
             if (!File.Exists(exePath))
             {
-                throw new FileNotFoundException("Kurulum paketinde Flyworm.exe yok.");
+                throw new FileNotFoundException("Kurulum paketinde TomyrsX.exe yok.");
             }
 
             StatusText.Text = "Masaüstü kısayolu oluşturuluyor...";
@@ -51,10 +51,10 @@ public partial class MainWindow : Window
             CreateDesktopShortcut(exePath, appDir);
 
             Bar.Value = 100;
-            StatusText.Text = "Kuruldu. Masaüstündeki Flyworm ile aç.";
+            StatusText.Text = "Kuruldu. Masaüstündeki Tomyrs X ile aç.";
             MessageBox.Show(
-                "Kurulum bitti. Masaüstünde Flyworm kısayolu var.",
-                "Flyworm",
+                "Kurulum bitti. Masaüstünde Tomyrs X kısayolu var.",
+                "Tomyrs X",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
             Close();
@@ -62,7 +62,7 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             StatusText.Text = ex.Message;
-            MessageBox.Show(ex.Message, "Flyworm Kurulum", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(ex.Message, "Tomyrs X Kurulum", MessageBoxButton.OK, MessageBoxImage.Error);
             InstallButton.IsEnabled = true;
         }
     }
@@ -74,7 +74,7 @@ public partial class MainWindow : Window
             .FirstOrDefault(n => n.EndsWith("Payload.zip", StringComparison.OrdinalIgnoreCase));
         if (name is null)
         {
-            throw new InvalidOperationException("Kurulum paketi eksik. Flyworm-Setup yeniden oluşturulmalı.");
+            throw new InvalidOperationException("Kurulum paketi eksik. TomyrsX-Setup yeniden oluşturulmalı.");
         }
 
         using var stream = assembly.GetManifestResourceStream(name)
@@ -86,7 +86,7 @@ public partial class MainWindow : Window
     private static void CreateDesktopShortcut(string exePath, string workingDirectory)
     {
         var desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-        var linkPath = Path.Combine(desktop, "Flyworm.lnk");
+        var linkPath = Path.Combine(desktop, "Tomyrs X.lnk");
         var shellType = Type.GetTypeFromProgID("WScript.Shell")
             ?? throw new InvalidOperationException("Kısayol oluşturulamadı.");
         var shell = Activator.CreateInstance(shellType)
@@ -101,7 +101,7 @@ public partial class MainWindow : Window
         shortcutType.InvokeMember("TargetPath", BindingFlags.SetProperty, null, shortcut, [exePath]);
         shortcutType.InvokeMember("WorkingDirectory", BindingFlags.SetProperty, null, shortcut, [workingDirectory]);
         shortcutType.InvokeMember("IconLocation", BindingFlags.SetProperty, null, shortcut, [exePath]);
-        shortcutType.InvokeMember("Description", BindingFlags.SetProperty, null, shortcut, ["Flyworm"]);
+        shortcutType.InvokeMember("Description", BindingFlags.SetProperty, null, shortcut, ["Tomyrs X"]);
         shortcutType.InvokeMember("Save", BindingFlags.InvokeMethod, null, shortcut, null);
     }
 }

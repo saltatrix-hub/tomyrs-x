@@ -1,93 +1,71 @@
-# Flyworm
+# Tomyrs X
 
-Windows 11 için **bilgisayar hızlandırma** ve **tweak** uygulaması.
-
-![Debloat](docs/screenshots/01-debloat.png)
+Tomyrs X, Windows 11 için modern arayüzlü bir **hızlandırma, debloat ve tweak** uygulamasıdır. Türkçe ve İngilizce arayüz sunar.
 
 ## İndir
 
-**[Flyworm-Setup.exe indir](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-Setup.exe)**
+En güncel kurulum dosyası: **[TomyrsX-Setup.exe](https://github.com/saltatrix-hub/tomyrs-x/releases/latest/download/TomyrsX-Setup.exe)**
 
-Setup’ı çalıştır, **Kur**’a bas. Masaüstüne Flyworm gelir; onu yönetici olarak aç.
+Kurulum dosyasını çalıştır, **Kur** düğmesine bas ve masaüstündeki Tomyrs X kısayolunu yönetici olarak aç.
 
-Tüm sürümler: [Releases](https://github.com/taneryigitxl/flyworm/releases)
+<p align="center">
+  <img src="assets/logo.png" alt="Tomyrs X" width="160">
+</p>
 
-## Ne işe yarar
+## Ekran görüntüleri
 
-Windows zamanla arka plan uygulamaları, öneriler, widget'lar, telemetri, gereksiz UWP yazılımları ve düşük güç planlarıyla yavaşlar. Flyworm bunları kategorilere ayırır:
+### Debloat
 
-- **Debloat** — bloatware, gizlilik, Copilot, widget, görev çubuğu, Dosya Gezgini
-- **Tweakler** — MSI, güç planı, Game Bar, arka plan uygulamaları, tema
-- **Ekran kartı** — AMD / Intel / NVIDIA performans kayıt defteri ayarları
+![Tomyrs X Debloat](docs/screenshots/01-debloat.png)
 
-**Seçilenleri uygula** yalnızca o anda açık olan sayfadaki işaretleri uygular. Debloat'tayken tweakler çalışmaz.
-
-## Arayüz
-
-| Sayfa | Ne gösterir |
+| Tweakler | Ekran kartı |
 | --- | --- |
-| Debloat | Win11Debloat özellikleri, beyaz kategori simgeleri, seçmeli görev çubuğu / arama stilleri |
-| Tweakler | Sırasıyla tweak scriptleri |
-| Ekran kartı | AMD, Intel, NVIDIA |
-| Günlük | PowerShell çıktısı yok; "İşleminiz yapılıyor" + yüzde, bitince **Bitti** |
-| Hakkında | [yigittaner.com](https://yigittaner.com), [GitHub](https://github.com/taneryigitxl), [LinkedIn](https://www.linkedin.com/in/taneryigit/) |
+| ![Tomyrs X Tweakler](docs/screenshots/02-tweaks.png) | ![Tomyrs X GPU](docs/screenshots/03-gpu.png) |
 
-![Tweakler](docs/screenshots/02-tweaks.png)
+| İşlem günlüğü | Hakkında |
+| --- | --- |
+| ![Tomyrs X Günlük](docs/screenshots/04-log.png) | ![Tomyrs X Hakkında](docs/screenshots/05-about.png) |
 
-![Ekran kartı](docs/screenshots/03-gpu.png)
+## Özellikler
 
-![Günlük](docs/screenshots/04-log.png)
+- **Debloat** — telemetri, öneriler, Copilot, widget, görev çubuğu, Dosya Gezgini ve gereksiz UWP uygulamaları
+- **Tweakler** — MSI modu, güç planı, Game Bar, arka plan uygulamaları, tema ve çalışma zamanı paketleri
+- **Ekran kartı** — AMD, Intel ve NVIDIA için ayrı performans ayarları
+- **Güvenlik** — riskli Edge ve Defender işlemlerinde ek onay, isteğe bağlı sistem geri yükleme noktası
+- **Çift dil** — Türkçe ve İngilizce
 
-![Hakkında](docs/screenshots/05-about.png)
+`Seçilenleri uygula` yalnızca açık olan sayfadaki seçimleri çalıştırır.
 
-## Tweakler
+## Derleme
 
-Uygulama, orijinal paketteki sırayı korur ve her satırda önerilen ayarı uygular:
+Gereksinim: Windows ve .NET 8 SDK.
 
-1. Arka plan uygulamalarını kapat
-2. USB yoklama tavanını kaldır
-3. MSI modunu aç
-4. DirectX çalışma zamanını kur
-5. Visual C++ paketlerini kur
-6. Başlat menüsü ve görev çubuğunu sadeleştir
-7. Copilot'u kapat
-8. GPU P0 durumunu zorla
-9. Widget'ları kapat
-10. Oyun modu ayarını aç
-11. Game Bar ve Xbox bileşenlerini kapat
-12. İşaretçi hassasiyeti
-13. Yüksek performans güç planı
-14. Kilit ekranını siyah yap
-15. Siyah tema
-16. Edge ve WebView'ı kaldır
-17. Bloatware temizliği
-18. Windows Defender'ı kapat (ayrı uyarı)
+```powershell
+dotnet build TomyrsX.sln -c Release
+```
 
-Edge ve Defender gibi riskli seçeneklerde ikinci bir onay çıkar.
+Uygulama çıktısı `src/TomyrsX.App/bin/Release/net8.0-windows/` altında oluşur.
 
-## Debloat ne yapar
+Tek dosyalık, .NET çalışma zamanı dahil kurulum paketi üretmek için:
 
-Win11Debloat motorunu sessiz çalıştırır. Tipik kazançlar:
+```powershell
+.\build-release.ps1
+```
 
-- Telemetri, öneriler ve kilit ekranı reklamlarını kapatmak
-- Copilot, Recall, widget ve Bing aramasını azaltmak
-- Görev çubuğunu ve Başlat menüsünü sadeleştirmek
-- Gereksiz uygulamaları kaldırmak
+Kurulum dosyası `artifacts/TomyrsX-Setup.exe` olarak oluşturulur.
 
-Debloat sayfasında isteğe bağlı **sistem geri yükleme noktası** vardır.
+## Kullanım uyarısı
 
-## Uyarı
+Bazı seçenekler Windows Defender, Microsoft Edge veya sistem bileşenlerini değiştirir. Yalnızca kendi bilgisayarında, etkilerini bilerek kullan ve önce bir geri yükleme noktası oluştur.
 
-Bazı tweakler Windows Defender, Edge veya sistem bileşenlerini değiştirir. Yalnızca kendi bilgisayarında, riski bilerek kullan. Önce geri yükleme noktası al.
+## Lisans ve kaynaklar
+
+Bu proje MIT lisanslı [Flyworm](https://github.com/taneryigitxl/flyworm) temel alınarak Tomyrs X markası için yeniden düzenlenmiştir. Dahili Win11Debloat bileşeni Raphire tarafından geliştirilmiştir ve kendi MIT lisansıyla dağıtılır. Ayrıntılar için [LICENSE](LICENSE) ve `vendor/Win11Debloat/LICENSE` dosyalarına bakın.
 
 ---
 
-# Flyworm (English)
+## English
 
-Purple-themed Windows 11 speed-up and tweak app. Default language is Turkish; English is included.
+Tomyrs X is a modern Windows 11 speed-up, debloat, and tweak utility with Turkish and English interfaces.
 
-Download [Flyworm-Setup.exe](https://github.com/taneryigitxl/flyworm/releases/latest/download/Flyworm-Setup.exe), run Setup, then open Flyworm from the desktop.
-
-It wraps Win11Debloat and the sequential tweak scripts in one window. **Apply selected** only runs the current page. The log shows a percentage, not PowerShell output.
-
-Use only on your own PC. Some options turn off Defender or remove Edge.
+Build with `dotnet build TomyrsX.sln -c Release`. Some options disable Defender or remove Edge; use them only when you understand the impact and create a restore point first.
